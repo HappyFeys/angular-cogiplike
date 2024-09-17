@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation de l'API ClientController</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        h1,
+        h2,
+        h3 {
+            color: #0056b3;
+        }
+
+        code {
+            background-color: #e8e8e8;
+            padding: 2px 4px;
+            border-radius: 4px;
+        }
+
+        pre {
+            background-color: #e8e8e8;
+            padding: 10px;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+
+        .example {
+            background-color: #f1f1f1;
+            padding: 10px;
+            border-left: 4px solid #0056b3;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Documentation de l'API ClientController</h1>
+    <p>Cette documentation décrit les différentes routes et actions disponibles dans le contrôleur
+        <code>ClientController</code>.
+    </p>
+
+    <h2>Routes</h2>
+
+    <h3>GET /client/global</h3>
+    <p>Récupère une liste de clients avec des options de recherche, de tri et de pagination.</p>
+    <ul>
+        <li><strong>Paramètres de requête :</strong></li>
+        <ul>
+            <li><code>search</code> (string) : Recherche par nom ou prénom.</li>
+            <li><code>sort</code> (string) : Tri par nom ou prénom.</li>
+            <li><code>page</code> (int) : Numéro de la page (par défaut : 1).</li>
+            <li><code>pageSize</code> (int) : Taille de la page (par défaut : 10).</li>
+        </ul>
+        <li><strong>Réponse :</strong> <code>200 OK</code> avec la liste des clients paginée.</li>
+    </ul>
+    <div class="example">
+        <h4>Exemple de requête :</h4>
+        <pre>GET /client/global?search=John&sort=nom&page=1&pageSize=10</pre>
+        <h4>Exemple de réponse :</h4>
+        <pre>[
+    {
+        "id": 1,
+        "nom": "Doe",
+        "prenom": "John"
+    },
+    {
+        "id": 2,
+        "nom": "Smith",
+        "prenom": "Jane"
+    }
+]</pre>
+    </div>
+
+    <h3>GET /client/specifique/{id}</h3>
+    <p>Récupère un client spécifique par son ID.</p>
+    <ul>
+        <li><strong>Paramètres :</strong></li>
+        <ul>
+            <li><code>id</code> (int) : ID du client.</li>
+        </ul>
+        <li><strong>Réponse :</strong> <code>200 OK</code> avec le client, ou <code>404 Not Found</code> si le client
+            n'existe pas.</li>
+    </ul>
+    <div class="example">
+        <h4>Exemple de requête :</h4>
+        <pre>GET /client/specifique/1</pre>
+        <h4>Exemple de réponse :</h4>
+        <pre>{
+    "id": 1,
+    "nom": "Doe",
+    "prenom": "John"
+}</pre>
+    </div>
+
+    <h3>PATCH /client/specifique/{id}</h3>
+    <p>Met à jour un client spécifique par son ID en utilisant un document de patch JSON.</p>
+    <ul>
+        <li><strong>Paramètres :</strong></li>
+        <ul>
+            <li><code>id</code> (int) : ID du client.</li>
+        </ul>
+        <li><strong>Corps de la requête :</strong> <code>JsonPatchDocument<Client></code></li>
+        <li><strong>Réponse :</strong> <code>200 OK</code> avec le client mis à jour, ou <code>404 Not Found</code> si
+            le client n'existe pas.</li>
+    </ul>
+    <div class="example">
+        <h4>Exemple de requête :</h4>
+        <pre>PATCH /client/specifique/1
+Content-Type: application/json
+[
+    { "op": "replace", "path": "/nom", "value": "Doe" },
+    { "op": "replace", "path": "/prenom", "value": "Johnny" }
+]</pre>
+        <h4>Exemple de réponse :</h4>
+        <pre>{
+    "id": 1,
+    "nom": "Doe",
+    "prenom": "Johnny"
+}</pre>
+    </div>
+
+    <h3>POST /client/global</h3>
+    <p>Ajoute un nouveau client.</p>
+    <ul>
+        <li><strong>Corps de la requête :</strong> <code>Client</code></li>
+        <li><strong>Réponse :</strong> <code>201 Created</code> avec le client créé.</li>
+    </ul>
+    <div class="example">
+        <h4>Exemple de requête :</h4>
+        <pre>POST /client/global
+Content-Type: application/json
+{
+    "nom": "Doe",
+    "prenom": "John"
+}</pre>
+        <h4>Exemple de réponse :</h4>
+        <pre>{
+    "id": 3,
+    "nom": "Doe",
+    "prenom": "John"
+}</pre>
+    </div>
+
+    <h3>DELETE /client/global/{id}</h3>
+    <p>Supprime un client spécifique par son ID.</p>
+    <ul>
+        <li><strong>Paramètres :</strong></li>
+        <ul>
+            <li><code>id</code> (int) : ID du client.</li>
+        </ul>
+        <li><strong>Réponse :</strong> <code>204 No Content</code> si la suppression est réussie, ou
+            <code>404 Not Found</code> si le client n'existe pas.
+        </li>
+    </ul>
+    <div class="example">
+        <h4>Exemple de requête :</h4>
+        <pre>DELETE /client/global/1</pre>
+        <h4>Exemple de réponse :</h4>
+        <pre>(Pas de contenu)</pre>
+    </div>
+</body>
+
+</html>
