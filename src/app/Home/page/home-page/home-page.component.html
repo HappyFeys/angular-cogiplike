@@ -1,0 +1,8 @@
+<app-header />
+<div *ngIf="isLoading">
+    <p>Chargement...</p>
+</div>
+<div *ngIf="!isLoading && error">
+    <p>{{ error }}</p>
+</div>
+<app-table [clients]="clients" *ngIf="!isLoading && !error"/>
