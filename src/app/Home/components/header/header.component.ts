@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -9,4 +9,12 @@ import { Component } from '@angular/core';
 })
 export class HeaderComponent {
 
+  @Output() modal : EventEmitter<void> = new EventEmitter<void>();
+
+  showModal() : void {
+    this.modal.emit()
+    console.log("event emitted");
+  }
+
 }
+

@@ -21,4 +21,10 @@ export class ApiServiceService {
   getClientDetails(id: number): Observable<Client> {
     return this.http.get<Client>(`${this.apiUrl}/client/specifique/${id}`)
   }
+
+  createClient(client: Client): Observable<Client> {
+    return this.http.post<Client>(`${this.apiUrl}/client/global`, client)
+  }
+
+  
 }

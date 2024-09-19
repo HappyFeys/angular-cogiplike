@@ -1,8 +1,9 @@
-<app-header />
-<div *ngIf="isLoading">
+<app-header (modal)="onShowPopover()"/>
+<div *ngIf="isLoading && !error">
     <p>Chargement...</p>
 </div>
 <div *ngIf="!isLoading && error">
     <p>{{ error }}</p>
 </div>
 <app-table [clients]="clients" *ngIf="!isLoading && !error"/>
+<app-form-create-client *ngIf="isPopoverOpen" />

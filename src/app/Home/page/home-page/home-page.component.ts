@@ -5,6 +5,7 @@ import { ApiServiceService } from '../../../Shared/service/api-service.service';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Client } from '../../models/client.models';
 import { NgIf } from '@angular/common';
+import { FormCreateClientComponent } from '../../component/form-create-client/form-create-client.component';
 
 @Component({
   selector: 'app-home-page',
@@ -12,6 +13,7 @@ import { NgIf } from '@angular/common';
   imports: [
     HeaderComponent,
     TableComponent,
+    FormCreateClientComponent,
     NgIf,
   ],
   templateUrl: './home-page.component.html',
@@ -22,6 +24,7 @@ export class HomePageComponent implements OnInit{
   clients: Client[]= [];
   isLoading: boolean = true
   error: string | null = null
+  isPopoverOpen: boolean = false
 
   constructor(private apiService: ApiServiceService){ }
   
@@ -36,6 +39,10 @@ export class HomePageComponent implements OnInit{
         this.isLoading = false;
       }
     })
+  }
+
+  onShowPopover():void{
+    this.isPopoverOpen = !this.isPopoverOpen
   }
 
   ngOnInit(): void {
