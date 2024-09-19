@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "DPpXz1gU1tLBA6FcjPv97CrAuZeczmFtCYpqNGHVOG0=",
+  "Hash": "tdL6LX16F5rla6YC+8Qpy7sr8rrwbFVmCJR6N7hNPcs=",
   "Source": "Backend",
   "BasePath": "_content/Backend",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "Backend\\wwwroot",
       "Source": "Backend",
-      "ContentRoot": "C:\\Users\\Nathanaël\\Documents\\Formation\\angular-cogiplike\\backend\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\happy\\becode\\angular\\angular-cogiplike\\Backend\\wwwroot\\",
       "BasePath": "_content/Backend",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "C:\\Users\\Nathanaël\\Documents\\Formation\\angular-cogiplike\\backend\\wwwroot\\index.html",
+      "Identity": "C:\\Users\\happy\\becode\\angular\\angular-cogiplike\\Backend\\wwwroot\\index.html",
       "SourceId": "Backend",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Nathanaël\\Documents\\Formation\\angular-cogiplike\\backend\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\happy\\becode\\angular\\angular-cogiplike\\Backend\\wwwroot\\",
       "BasePath": "_content/Backend",
       "RelativePath": "index.html",
       "AssetKind": "All",

@@ -1,0 +1,34 @@
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nom</th>
+            <th>Prénom</th>
+            <th>Email</th>
+            <th>Téléphone</th>
+            <th>Date de Naissance</th>
+            <th>Adresse</th>
+            <th>Ville</th>
+            <th>Code Postal</th>
+            <th>Pays</th>
+            <th>Date d'Inscription</th>
+            <th>Statut Compte</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let client of clients">
+            <td>{{ client.id }}</td>
+            <td (click)="goToClient(client.id)">{{ client.nom }}</td>
+            <td (click)="goToClient(client.id)">{{ client.prenom }}</td>
+            <td>{{ client.email }}</td>
+            <td>{{ client.tel }}</td>
+            <td>{{ client.dateNaissance | date : 'dd/MM/yyyy' }}</td>
+            <td>{{ client.adresse }}</td>
+            <td>{{ client.ville }}</td>
+            <td>{{ client.codePostal }}</td>
+            <td>{{ client.pays }}</td>
+            <td>{{ client.dateInscription | date : 'dd/MM/yyyy' }}</td>
+            <td>{{ client.statutCompte ? 'Actif' : 'Inactif' }}</td>
+        </tr>
+    </tbody>
+</table>

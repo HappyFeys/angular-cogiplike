@@ -1,0 +1,17 @@
+<div *ngIf="isLoading">
+    <p>Chargement...</p>
+</div>
+
+<div *ngIf="!isLoading && error">
+    <p>{{ error }}</p>
+</div>
+
+<div *ngIf="!isLoading && !error">
+    <h1>{{ client.nom + " " + client.prenom}}</h1>
+    <p>Adresse mail : {{ client.email }}</p>
+    <p>Teléphone : {{ client.tel }}</p>
+    <p>Date de naissance : {{ client.dateNaissance | date : 'dd/MM/yyyy' }}</p>
+    <p>Adresse : {{ client.adresse + " " + client.ville + " " + client.codePostal + " " + client.pays}}</p>
+    <p>Date d'inscription : {{ client.dateInscription | date : 'dd/MM/yyyy' }}</p>
+    <p>Statut du compte : {{ client.statutCompte ? 'Actif' : 'Inactif' }}</p>
+</div>
