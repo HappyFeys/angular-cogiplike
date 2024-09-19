@@ -3500,23 +3500,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\happy\\.nuget\\packages\\": {},
+    "C:\\Users\\Nathanaël\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\happy\\becode\\angular\\angular-cogiplike\\Backend\\Backend.csproj",
+      "projectUniqueName": "C:\\Users\\Nathanaël\\Documents\\Formation\\angular-cogiplike\\Backend\\Backend.csproj",
       "projectName": "Backend",
-      "projectPath": "C:\\Users\\happy\\becode\\angular\\angular-cogiplike\\Backend\\Backend.csproj",
-      "packagesPath": "C:\\Users\\happy\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\happy\\becode\\angular\\angular-cogiplike\\Backend\\obj\\",
+      "projectPath": "C:\\Users\\Nathanaël\\Documents\\Formation\\angular-cogiplike\\Backend\\Backend.csproj",
+      "packagesPath": "C:\\Users\\Nathanaël\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Nathanaël\\Documents\\Formation\\angular-cogiplike\\Backend\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\happy\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Nathanaël\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
