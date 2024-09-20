@@ -45,13 +45,13 @@ export class HomePageComponent implements OnInit{
     this.isPopoverOpen = !this.isPopoverOpen
   }
 
-  onClientCreated(client: Client): void{
-    this.clients.push(client);
+  onClientCreated(): void{
+    this.loadClients();
     this.isPopoverOpen = false
   }
 
-  onClientDeleted(id:number): void {
-    this.clients = this.clients.filter((c) => c.id !== id);
+  onClientDeleted(): void {
+    this.loadClients();
   }
 
   ngOnInit(): void {
