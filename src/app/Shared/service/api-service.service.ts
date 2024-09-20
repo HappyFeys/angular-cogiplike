@@ -28,5 +28,9 @@ export class ApiServiceService {
   deleteClient(id:number): Observable<Client> {
     return this.http.delete<Client>(`${this.apiUrl}/client/global/${id}`)
   }
+
+  updateClient(patches:any[], id: number): Observable<Client> {
+    return this.http.patch<Client>(`${this.apiUrl}/client/specifique/${id}`, patches)
+  }
   
 }

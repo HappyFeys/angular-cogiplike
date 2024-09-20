@@ -3,12 +3,12 @@
 // Configurer CORS pour autoriser les requêtes de localhost:4200 (Angular)
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowAngularOrigin",
+    options.AddPolicy("AllowAll",
         policy =>
         {
-            policy.WithOrigins("http://localhost:4200") // Origine autorisée
-                  .AllowAnyHeader()                    // Autoriser tous les en-têtes
-                  .AllowAnyMethod();                   // Autoriser toutes les méthodes HTTP (GET, POST, etc.)
+            policy.AllowAnyOrigin() 
+                  .AllowAnyHeader()                   
+                  .AllowAnyMethod();                  
         });
 });
 
@@ -18,7 +18,7 @@ ServiceManager.AddController(builder);
 var app = builder.Build();
 
 // Activer CORS
-app.UseCors("AllowAngularOrigin");
+app.UseCors("AllowAll");
 
 // Autres middlewares
 ServiceManager.UseController(app);

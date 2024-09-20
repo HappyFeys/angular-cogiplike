@@ -8,11 +8,55 @@
 
 <div *ngIf="!isLoading && !error">
     <h1>{{ client.nom + " " + client.prenom}}</h1>
-    <p>Adresse mail : {{ client.email }}</p>
-    <p>Teléphone : {{ client.tel }}</p>
+    <div>
+        <p>Adresse mail : {{ client.email }}</p>
+        <button (click)="showInput('email')">Modifier</button>
+        <div *ngIf="isEmailEditing">
+            <input type="email" name="email" id="email" [(ngModel)]="newEmail" >
+            <button (click)="updateEmail()">Valider</button>
+        </div>
+    </div>
+    <div>
+        <p>Teléphone : {{ client.tel }}</p>
+        <button (click)="showInput('tel')">Modifier</button>
+        <div *ngIf="isTelEditing">
+            <input type="text" [(ngModel)]="newTel" >
+            <button (click)="updateTel()">Valider</button>
+        </div>
+    </div>
     <p>Date de naissance : {{ client.dateNaissance | date : 'dd/MM/yyyy' }}</p>
-    <p>Adresse : {{ client.adresse + " " + client.ville + " " + client.codePostal + " " + client.pays}}</p>
+    <div>
+        <div>
+            <p>Adresse : {{ client.adresse + ", " + client.ville + " " + client.codePostal + " " + client.pays}}</p>
+            <button (click)="showInput('adresse')">Modifier</button>
+        </div>
+        <div *ngIf="isAddressEditing">
+            <div>
+                <label for="adresse">Rue :</label>
+                <input type="text" [(ngModel)]="newAddress" >
+            </div>
+            <div>
+                <label for="ville">Ville :</label>
+                <input type="text" [(ngModel)]="newVille" >
+            </div>
+            <div>
+                <label for="codePostal">Code Postal :</label>
+                <input type="text" [(ngModel)]="newCodePostal">
+            </div>
+            <div>
+                <label for="pays">Pays :</label>
+                <input type="text" [(ngModel)]="newPays">
+            </div>
+            <button>Valider</button>
+        </div>
+    </div>
     <p>Date d'inscription : {{ client.dateInscription | date : 'dd/MM/yyyy' }}</p>
-    <p>Statut du compte : {{ client.statutCompte ? 'Actif' : 'Inactif' }}</p>
-    <button>Modifier</button>
+    <div>
+        <p>Statut du compte : {{ client.statutCompte ? 'Actif' : 'Inactif' }}</p>
+        <button (click)="showInput('statutCompte')">Modifier</button>
+        <div *ngIf="isStatusEditing">
+            <input type="checkbox" [(ngModel)]="newStatut">
+            <button>Valider</button>
+        </div>
+    </div>
 </div>
