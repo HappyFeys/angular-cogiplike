@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { HeaderComponent } from '../../components/header/header.component';
 import { TableComponent } from '../../components/table/table.component';
 import { ApiServiceService } from '../../../Shared/service/api-service.service';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Client } from '../../models/client.models';
 import { NgIf } from '@angular/common';
 import { FormCreateClientComponent } from '../../component/form-create-client/form-create-client.component';
@@ -19,7 +18,7 @@ import { FormCreateClientComponent } from '../../component/form-create-client/fo
   templateUrl: './home-page.component.html',
   styleUrl: './home-page.component.scss'
 })
-export class HomePageComponent implements OnInit{
+export class HomePageComponent implements OnInit{  
 
   clients: Client[]= [];
   isLoading: boolean = true
@@ -33,6 +32,7 @@ export class HomePageComponent implements OnInit{
       next: (data: Client[]) => {
         this.clients = data;
         this.isLoading = false;
+        console.log(this.clients);
       },
       error: (err) => {
         this.error = 'Erreur lors de la sélection des données.';
@@ -43,6 +43,15 @@ export class HomePageComponent implements OnInit{
 
   onShowPopover():void{
     this.isPopoverOpen = !this.isPopoverOpen
+  }
+
+  onClientCreated(client: Client): void{
+    this.clients.push(client);
+    this.isPopoverOpen = false
+  }
+
+  onClientDeleted(id:number): void {
+    this.clients = this.clients.filter((c) => c.id !== id);
   }
 
   ngOnInit(): void {

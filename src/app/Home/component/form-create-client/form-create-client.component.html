@@ -1,1 +1,51 @@
-<p>form-create-client works!</p>
+<div>
+    <h2>Ajouter un client</h2>
+    <form (submit)="onSubmit()" [formGroup]="clientForm">
+        <div>
+            <div>
+                <label for="nom">Nom :</label>
+                <input type="text" id="nom" formControlName="nom">
+            </div>
+            <div>
+                <label for="prenom">Prénom :</label>
+                <input type="text" id="prenom" formControlName="prenom">
+            </div>
+        </div>
+        <div>
+            <div>
+                <label for="email">Email :</label>
+                <input type="email" id="email" formControlName="email">
+            </div>
+            <div>
+                <label for="tel">Téléphone :</label>
+                <input type="tel" id="tel" formControlName="tel">
+            </div>
+        </div>
+        <div>
+            <label for="dateNaissance">Date de naissance :</label>
+            <input type="date" id="dateNaissance" formControlName="dateNaissance">
+        </div>
+        <div>
+            <label for="adresse">Adresse</label>
+            <div>
+                <div>
+                    <label for="adresse">Rue :</label>
+                    <input type="text" id="adresse" formControlName="adresse">
+                </div>
+                <div>
+                    <label for="ville">Ville :</label>
+                    <input type="text" id="ville" formControlName="ville">
+                </div>
+                <div>
+                    <label for="codePostal">Code Postal :</label>
+                    <input type="text" id="codePostal" formControlName="codePostal">
+                </div>
+                <div>
+                    <label for="pays">Pays :</label>
+                    <input type="text" id="pays" formControlName="pays">
+                </div>
+            </div>
+        </div>
+        <button type="submit">Valider</button>
+    </form>
+</div>

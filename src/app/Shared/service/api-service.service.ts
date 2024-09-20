@@ -3,7 +3,6 @@ import { environment } from '../../../environment/environment';
 import { HttpClient } from '@angular/common/http';
 import { map, Observable } from 'rxjs';
 import { Client } from '../../Home/models/client.models';
-import { response } from 'express';
 
 @Injectable({
   providedIn: 'root'
@@ -26,5 +25,8 @@ export class ApiServiceService {
     return this.http.post<Client>(`${this.apiUrl}/client/global`, client)
   }
 
+  deleteClient(id:number): Observable<Client> {
+    return this.http.delete<Client>(`${this.apiUrl}/client/global/${id}`)
+  }
   
 }

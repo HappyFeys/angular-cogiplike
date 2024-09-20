@@ -5,5 +5,5 @@
 <div *ngIf="!isLoading && error">
     <p>{{ error }}</p>
 </div>
-<app-table [clients]="clients" *ngIf="!isLoading && !error"/>
-<app-form-create-client *ngIf="isPopoverOpen" />
+<app-table [clients]="clients" *ngIf="!isLoading && !error" (deletedClient)="onClientDeleted($event)"/>
+<app-form-create-client *ngIf="isPopoverOpen" (createdClient)="onClientCreated($event)"/>
